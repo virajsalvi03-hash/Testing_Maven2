@@ -24,7 +24,8 @@ public class BaseClass {
 
 	@BeforeMethod(alwaysRun = true)
 	public static void setup() {
-		String browser = ConfigReader.get("browser");
+		String browser = System.getProperty("browser","chrome");
+//		String browser = ConfigReader.get("browser");
 		switch (browser) {
 		case "chrome":
 			driver = new ChromeDriver();

@@ -24,7 +24,13 @@ public class BaseClass {
 
 	@BeforeMethod(alwaysRun = true)
 	public static void setup() {
-		String browser = System.getProperty("browser","chrome");
+		//read the browser value from Jenkins
+				String browser = System.getProperty("browser");
+
+				//if value not received from Jenkins, read from config file
+				if(browser == null || browser.isEmpty()) {
+					browser = ConfigReader.get("browser");
+				}
 //		String browser = ConfigReader.get("browser");
 		switch (browser) {
 		case "chrome":

@@ -58,9 +58,9 @@ public class BaseClass {
 		
 		String url = System.getProperty(env+"_url");
 		driver.get(url);
-		if(url==null||url.isEmpty()) {
+		
 			driver.get(ConfigReader.get("url"));	
-		}
+	
 		
 		LoggerUtils.info("Browser started");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(time));

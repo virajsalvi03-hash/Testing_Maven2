@@ -51,15 +51,17 @@ public class BaseClass {
 			
 
 		driver.manage().window().maximize();
-		String env = System.getProperty("env");
-		if(env==null ||env.isEmpty()) {
-			env=ConfigReader.get(env);
-		}
-		
-		String url = System.getProperty(env+"_url");
-		driver.get(url);
-		
-			driver.get(ConfigReader.get("url"));	
+		//read the environment value from Jenkins
+				String env = System.getProperty("env");
+				
+				//if value not received from Jenkins, read from config file
+				if(env == null || env.isEmpty()) {
+					env = ConfigReader.get("env");
+				}
+				
+				//read the url based on environment
+				String url = ConfigReader.get(env + "_url");
+				driver.get(url);	
 	
 		
 		LoggerUtils.info("Browser started");

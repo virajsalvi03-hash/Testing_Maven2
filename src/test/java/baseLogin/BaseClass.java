@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -24,31 +25,43 @@ public class BaseClass {
 
 	@BeforeMethod(alwaysRun = true)
 	public static void setup() {
-		//read the browser value from Jenkins
-				String browser = System.getProperty("browser");
 
-				//if value not received from Jenkins, read from config file
-				if(browser == null || browser.isEmpty()) {
-					browser = ConfigReader.get("browser");
-				}
-//		String browser = ConfigReader.get("browser");
-		switch (browser) {
-		case "chrome":
-			driver = new ChromeDriver();
-			break;
-		case "Edge":
-			driver = new EdgeDriver();
-			break;
-		case "Firefox":
-			driver = new FirefoxDriver();
-			break;
-		default:
-			driver = new ChromeDriver();
-			break;
-		}
+			//read the browser value from Jenkins
+			String browser = System.getProperty("browser");
+
+			//if value not received from Jenkins, read from config file
+			if(browser == null || browser.isEmpty()) {
+				browser = ConfigReader.get("browser");
+			}
+			
+			switch (browser) {
+			case "chrome":
+				driver = new ChromeDriver();
+				break;
+			case "firefox":
+				driver = new FirefoxDriver();
+				break;
+			case "edge":
+				driver = new EdgeDriver();
+				break;
+			default:
+				driver = new InternetExplorerDriver();
+				break;
+			}
+			
 
 		driver.manage().window().maximize();
-		driver.get(ConfigReader.get("url"));
+		String env = System.getProperty("env");
+		if(env==null ||env.isEmpty()) {
+			env=ConfigReader.get(env);
+		}
+		
+		String url = System.getProperty(env+"_url");
+		driver.get(url);
+		if(url==null||url.isEmpty()) {
+			driver.get(ConfigReader.get("url"));	
+		}
+		
 		LoggerUtils.info("Browser started");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(time));
 //		home = new HomePage(driver);

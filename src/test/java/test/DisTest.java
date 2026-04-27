@@ -67,7 +67,7 @@ public class DisTest extends BaseClass {
 //		datetime.confrim();
 //		chair.selectSeat();
 //		chair.proceedbtn();
-//		LoggerUtils.info("Test case -bookMovie complete");
+		LoggerUtils.info("Test case -bookMovie complete");
 
 	}
 

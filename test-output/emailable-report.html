@@ -9,12 +9,26 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">15,128</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">5,205</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">test.DisTest</td><td><a href="#m0">searchMovies</a></td><td rowspan="1">1775545766214</td><td rowspan="1">1940</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">test.DisTest</td><td><a href="#m0">setup</a></td><td rowspan="1">1777350216769</td><td rowspan="1">3600</td></tr><tr><th colspan="4">Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">test.DisTest</td><td><a href="#m1">searchMovies</a></td><td rowspan="1">1777350221337</td><td rowspan="1">4</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">test.DisTest#searchMovies</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
-	at test.DisTest.searchMovies(DisTest.java:51)
+<h2>Test</h2><h3 id="m0">test.DisTest#setup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:220)
+	at java.base/java.util.ImmutableCollections$Map1.&lt;init&gt;(ImmutableCollections.java:1351)
+	at java.base/java.util.Map.of(Map.java:1364)
+	at org.openqa.selenium.remote.DriverCommand.GET(DriverCommand.java:251)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:372)
+	at baseLogin.BaseClass.setup(BaseClass.java:64)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">test.DisTest#searchMovies</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:220)
+	at java.base/java.util.ImmutableCollections$Map1.&lt;init&gt;(ImmutableCollections.java:1351)
+	at java.base/java.util.Map.of(Map.java:1364)
+	at org.openqa.selenium.remote.DriverCommand.GET(DriverCommand.java:251)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:372)
+	at baseLogin.BaseClass.setup(BaseClass.java:64)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>

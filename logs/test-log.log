@@ -1156,3 +1156,9 @@
 2026-04-09 15:21:18 INFO  LoggerUtils:10 - Date and Day select correctly
 2026-04-09 15:21:18 INFO  LoggerUtils:10 - Filters Selected
 2026-04-09 15:21:18 INFO  LoggerUtils:10 - Select Format section
+2026-04-28 09:53:36 WARN  Configuration:133 - Detected a static method [baseLogin.BaseClass.setup()]. Static configuration methods can cause unexpected behavior.
+2026-04-28 09:53:36 WARN  Configuration:133 - Detected a static method [test.DisTest.intiialize()]. Static configuration methods can cause unexpected behavior.
+2026-04-28 09:53:36 WARN  Configuration:133 - Detected a static method [baseLogin.BaseClass.tearDown()]. Static configuration methods can cause unexpected behavior.
+2026-04-28 09:53:36 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\viraj\eclipse-workspace\Testing_Maven2\testng.xml
+

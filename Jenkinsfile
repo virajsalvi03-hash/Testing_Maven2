@@ -27,9 +27,9 @@ pipeline {
             }
         }
 
-        stage('Build & Test') {
+         stage('Build & Test') {
             steps {
-                bat "mvn clean test -Dbrowser=${params.BROWSER"} -Denvironment=${params.ENVIRONMENT}"
+                bat "mvn clean test -Dbrowser=${params.BROWSER} -Denvironment=${params.ENVIRONMENT}"
             }
         }
     }

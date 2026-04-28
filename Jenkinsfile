@@ -1,5 +1,18 @@
 pipeline {
     agent any
+    
+    parameters{
+		choice{
+			name: 'BROWSER',
+			chioce: ['Chrome', 'edge','firefox'],
+			description: 'Select the browser to run the tests'
+		}
+		choice{
+			name: 'ENVIRONMENT',
+			choice: ['prod','qa','uat']
+			description: 'Select the environment to run the tests'
+		}
+	}
 
     tools {
         jdk 'Java_JDK'
@@ -16,7 +29,7 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                bat "mvn clean test"
+                bat "mvn clean test -Dbrowser=${params.BROWSER"} -Denv=${params.ENVIRONMENT}
             }
         }
     }

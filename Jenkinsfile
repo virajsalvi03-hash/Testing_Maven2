@@ -1,11 +1,16 @@
 pipeline {
     agent any
     
+     parameters {
+        string(name: 'BROWSER', defaultValue: 'chrome')
+        string(name: 'ENVIRONMENT', defaultValue: 'qa')
+    }
+
     triggers {
-        parameterized('''
-        50 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
-        52 15 * * * % BROWSER=edge;ENVIRONMENT=uat
-        54 15 * * * % BROWSER=chrome;ENVIRONMENT=prod
+        parameterizedCron('''
+            57 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
+            58 15 * * * % BROWSER=edge;ENVIRONMENT=uat
+            00 14 * * * % BROWSER=chrome;ENVIRONMENT=prod
         ''')
     }
     

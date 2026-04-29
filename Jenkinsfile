@@ -3,8 +3,8 @@ pipeline {
     
     triggers {
         parameterized('''40 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
-        40 15 * * * % BROWSER=edge;ENVIRONMENT=uat
-        40 15 * * * % BROWSER=chrome;ENVIRONMENT=prod''')
+        42 15 * * * % BROWSER=edge;ENVIRONMENT=uat
+        44 15 * * * % BROWSER=chrome;ENVIRONMENT=prod''')
     }
     
     parameters{

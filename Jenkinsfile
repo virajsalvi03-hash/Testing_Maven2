@@ -3,25 +3,27 @@ pipeline {
     
     
 
-    triggers {
-        parameterizedCron('''
-            57 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
-            58 15 * * * % BROWSER=edge;ENVIRONMENT=uat
-            00 14 * * * % BROWSER=chrome;ENVIRONMENT=prod
-        ''')
-    }
+	triggers {
+		parameterizedCron('''
+			48 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
+			50 15 * * * % BROWSER=firefox;ENVIRONMENT=uat
+			52 15 * * * % BROWSER=edge;ENVIRONMENT=prod
+			'''
+		)
+	}
+
     
     parameters{
-		choice{
+		choice(
 			name: 'BROWSER',
-			chioce: ['Chrome', 'edge','firefox'],
-			description: 'Select the browser to run the tests'
-		}
-		choice{
+			choices: ['chrome', 'edge', 'firefox', 'ie'],
+			description: 'Select the browser to run the tests on'
+		)
+		choice(
 			name: 'ENVIRONMENT',
-			choice: ['prod','qa','uat']
+			choices: ['qa', 'prod', 'uat'],
 			description: 'Select the environment to run the tests'
-		}
+		)
 	}
 
     tools {

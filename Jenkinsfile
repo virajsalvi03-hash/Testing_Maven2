@@ -2,9 +2,11 @@ pipeline {
     agent any
     
     triggers {
-        parameterized('''42 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
-        44 15 * * * % BROWSER=edge;ENVIRONMENT=uat
-        46 15 * * * % BROWSER=chrome;ENVIRONMENT=prod''')
+        parameterized('''
+        50 15 * * * % BROWSER=chrome;ENVIRONMENT=qa
+        52 15 * * * % BROWSER=edge;ENVIRONMENT=uat
+        54 15 * * * % BROWSER=chrome;ENVIRONMENT=prod
+        ''')
     }
     
     parameters{
